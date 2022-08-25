@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<div class="jumbotron">
+    <h1>Torneio Z</h1>
+</div>
+
+<div class="pull-right">
+    <a href="{{ url_for('novo') }}" class="btn btn-success">Cadastrar Lutador</a>
+</div>
+
+<div class="row mx-auto">
+    
+    {% for lutador in lutadores %}
+    <div class="card text-center mx-3 my-4" style="width: 18rem;">
+        <img src="{{ url_for('static', filename=lutador.foto) }}"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ lutador.nome }}</h5>
+            <p class="card-text"> <b>Idade: </b> {{ lutador.idade }} </p>
+            <p class="card-text"> <b>Força: </b> {{ lutador.forca }} </p>
+            <a href="{{ url_for('editar', id=lutador._id) }}" class="btn btn-outline-primary">Editar</a>
+            <a href="{{ url_for('deletar', id=lutador._id) }}" class="btn btn-outline-danger">Deletar</a>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock %}

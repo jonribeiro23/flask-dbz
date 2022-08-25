@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Create a new page {% endblock %}
+
+{% block body %}
+
+<h1>Editar</h1>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <form action="{{ url_for('atualizar', id=lutador._id) }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" value="{{lutador.nome}}">
+            </div>
+
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" class="form-control" id="idade" name="idade" value="{{ lutador.idade }}">
+            </div>
+
+            <div class="form-group">
+                <label for="forca">Força:</label>
+                <input type="text" class="form-control" id="forca" name="forca" value="{{ lutador.forca }}">
+            </div>
+
+            <div class="form-group">
+                <label for="foto">Foto:</label>
+                <input class="form-control-file" type="file" id="foto" name="foto" accept="image/png, image/jpeg" value="{{ lutador.foto }}">
+            </div>
+
+            <button class="btn btn-success" type="submit">Editar</button>
+            <a class="btn btn-warning" href="{{ url_for('index') }}">Cancelar</a>
+        </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+{% endblock %}

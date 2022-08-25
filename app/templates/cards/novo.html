@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Create a new page {% endblock %}
+
+{% block body %}
+
+<h1>Cadastrar</h1>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <form action="{{ url_for('salvar') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome">
+            </div>
+
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" class="form-control" id="idade" name="idade">
+            </div>
+
+            <div class="form-group">
+                <label for="forca">Força:</label>
+                <input type="text" class="form-control" id="forca" name="forca">
+            </div>
+
+            <div class="form-group">
+                <label for="foto">Foto:</label>
+                <input class="form-control-file" type="file" id="foto" name="foto" accept="image/png, image/jpeg">
+            </div>
+
+            <button class="btn btn-success" type="submit">Cadastrar</button>
+            <a class="btn btn-warning" href="{{ url_for('index') }}">Cancelar</a>
+        </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+{% endblock %}
